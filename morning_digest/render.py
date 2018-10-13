@@ -3,7 +3,7 @@ import datetime
 
 
 
-def render_components(components) -> str:
+def render_sources(sources) -> str:
     date = datetime.datetime.now().strftime('%Y-%m-%d')
     template = Template(
         """\
@@ -15,10 +15,10 @@ def render_components(components) -> str:
     <meta name="viewport" content="width=device-width, initial-scale=1.0 " />
   </head>
   <body>
-    {% for component in components %}
+    {% for source in sources %}
     <section>
-      <h2>{{ component.url }}</h2>
-      {% for content in component.content %}
+      <h2>{{ source.url }}</h2>
+      {% for content in source.content %}
         <p>{{ content.text }}</p>
         {% if content.image %}
           <img src={{ content.image }} style="max-width:100%; height:auto; border:none;" />
@@ -32,4 +32,4 @@ def render_components(components) -> str:
 """
     )
 
-    return template.render(subject=f"Morning Digest - {date}", components=components)
+    return template.render(subject=f"Morning Digest - {date}", sources=sources)

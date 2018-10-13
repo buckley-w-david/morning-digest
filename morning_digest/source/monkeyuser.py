@@ -1,10 +1,10 @@
 from bs4 import BeautifulSoup
 
-from morning_digest.component import Component
-from morning_digest.component import ComponentContent
+from morning_digest.source import Source
+from morning_digest.source import SourceContent
 
 
-class MonkeyUserComponent(Component):
+class MonkeyUser(Source):
     DEFAULT_URL = 'https://www.monkeyuser.com/'
 
     @staticmethod
@@ -20,4 +20,4 @@ class MonkeyUserComponent(Component):
         title = image_tag.get("title")
         origin = image_tag.get("src")
 
-        return [ComponentContent(title, origin)]
+        return [SourceContent(title, origin)]
