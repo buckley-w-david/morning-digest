@@ -1,10 +1,11 @@
 FROM 3.7-alpine as env
 FROM env as build
 
+RUN curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
+
 COPY . /opt/morning-digest
 WORKDIR /opt/morning-digest
 
-RUN curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
 RUN poetry build -f wheel
 
 FROM env as run
