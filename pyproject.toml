@@ -5,11 +5,20 @@ description = ""
 authors = ["David Buckley <buckley.w.davdid@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.7"
 aiohttp = "^3.4"
 beautifulsoup4 = "^4.6"
 cchardet = "^2.1"
 aiodns = "^1.1"
+lxml = "^4.2"
+click = "^7.0"
+jinja2 = "^2.10"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.0"
+requests = "^2.19"
+aioconsole = "^0.1.10"
+black = "^18.3-alpha.0"
+
+[tool.poetry.scripts]
+digest = 'morning_digest.cli:main'
