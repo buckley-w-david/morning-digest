@@ -1,0 +1,18 @@
+config.txt
+tests
+*.pyc
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+_build
+.cache
+*.so
+
+# Installer logs
+pip-log.txt
+.pytest_cache
+
+pyproject.lock
