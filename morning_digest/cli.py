@@ -5,7 +5,6 @@ import click
 
 from morning_digest.component import ComponentType, ALL_COMPONENTS
 from morning_digest.component import MonkeyUserComponent
-from morning_digest import generate
 from morning_digest import render
 
 

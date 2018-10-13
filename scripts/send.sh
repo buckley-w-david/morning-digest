@@ -17,4 +17,4 @@ mutt \
   -e "set record = \"\""\
   -e "set move = no "\
   -e "set imap_keepalive = 900" \
-  -s "test" buckley.w.david@gmail.com  < ${1:-/dev/stdin}
+  -s "test" "$1" < ${2:-/dev/stdin}
