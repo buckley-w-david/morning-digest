@@ -21,7 +21,7 @@ def render_components(components) -> str:
       {% for content in component.content %}
         <p>{{ content.text }}</p>
         {% if content.image %}
-          <img src={{ content.image }} style="width:100%; height:auto; border:none;" />
+          <img src={{ content.image }} style="max-width:100%; height:auto; border:none;" />
         {% endif %}
       {% endfor %}
     </section>
