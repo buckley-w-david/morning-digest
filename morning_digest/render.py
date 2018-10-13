@@ -1,7 +1,10 @@
 from jinja2 import Template
+import datetime
+
 
 
 def render_components(components) -> str:
+    date = datetime.datetime.now().strftime('%Y-%m-%d')
     template = Template(
         """\
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -20,10 +23,11 @@ def render_components(components) -> str:
         <img src={{ content.image }} style="width:100%; height:auto; border:none;" />
       {% endfor %}
     </section>
+    <hr />
     {% endfor %}
   </body>
 </html>
 """
     )
 
-    return template.render(title="TEST", components=components)
+    return template.render(subject=f"Morning Digest - {date}", components=components)
