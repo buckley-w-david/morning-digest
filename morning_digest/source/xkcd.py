@@ -1,10 +1,10 @@
 from bs4 import BeautifulSoup
 
-from morning_digest.component import Component
-from morning_digest.component import ComponentContent
+from morning_digest.source import Source
+from morning_digest.source import SourceContent
 
 
-class XKCDComponent(Component):
+class XKCD(Source):
     DEFAULT_URL = 'https://xkcd.com/'
 
     @staticmethod
@@ -22,6 +22,6 @@ class XKCDComponent(Component):
 
 
         return [
-            ComponentContent(title, origin),
-            ComponentContent(image_text),
+            SourceContent(title, origin),
+            SourceContent(image_text),
         ]
