@@ -17,10 +17,12 @@ def render_components(components) -> str:
   <body>
     {% for component in components %}
     <section>
-      <p>{{ component.url }}</p>
+      <h2>{{ component.url }}</h2>
       {% for content in component.content %}
-        <p>{{ content.title }}</p>
-        <img src={{ content.image }} style="width:100%; height:auto; border:none;" />
+        <p>{{ content.text }}</p>
+        {% if content.image %}
+          <img src={{ content.image }} style="width:100%; height:auto; border:none;" />
+        {% endif %}
       {% endfor %}
     </section>
     <hr />

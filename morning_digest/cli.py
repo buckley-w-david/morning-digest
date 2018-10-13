@@ -3,8 +3,7 @@ import typing
 
 import click
 
-from morning_digest.component import ComponentType, ALL_COMPONENTS
-from morning_digest.component import MonkeyUserComponent
+from morning_digest.component import ComponentType, ALL_COMPONENTS, TYPE_MAP
 from morning_digest import render
 
 
@@ -13,13 +12,17 @@ def main():
     pass
 
 
-async def a_generate(output, components):
-    components = [await MonkeyUserComponent.from_url("https://www.monkeyuser.com/")]
+# TODO
+# Come up with a method fo specifying alternate URLS
+# Instead of always pulling the default
+async def a_generate(output, components_names):
+    types = [ComponentType.from_name(c) for c in components_names]
+    components = [await TYPE_MAP[t].default() for t in types]
     output.write(render.render_components(components))
 
 
 @main.command()
 @click.argument("output", type=click.File("w"))
-@click.option("--components", type=click.Choice(ALL_COMPONENTS))
-def generate(output: typing.IO[str], components):
-    asyncio.run(a_generate(output, components))
+@click.option("--component", type=click.Choice(ALL_COMPONENTS), multiple=True)
+def generate(output: typing.IO[str], component):
+    asyncio.run(a_generate(output, component))

@@ -15,3 +15,6 @@ pip-log.txt
 .pytest_cache
 
 pyproject.lock
+
+# generated content
+*.html

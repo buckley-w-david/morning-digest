@@ -25,6 +25,8 @@ class ComponentContent:
 
 
 class Component:
+    DEFAULT_URL = None
+
     def __init__(self, url: str, content: typing.Sequence[ComponentContent]) -> None:
         self.url = url
         self.content = content
@@ -36,6 +38,10 @@ class Component:
             content = await cls.process(html)
 
         return Component(url, content)
+
+    @classmethod
+    async def default(cls) -> "Component":
+        return await cls.from_url(cls.DEFAULT_URL)
 
     @staticmethod
     async def process(html: str, aio_session) -> str:

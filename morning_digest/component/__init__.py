@@ -13,5 +13,8 @@ class ComponentType(enum.Enum):
     def from_name(name: str) -> "ComponentType":
         return getattr(ComponentType, name.upper().strip())
 
-
 ALL_COMPONENTS = [t.name for t in ComponentType]
+TYPE_MAP = {
+    ComponentType.MONKEYUSER: MonkeyUserComponent,
+    ComponentType.XKCD: XKCDComponent,
+}
