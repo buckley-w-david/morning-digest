@@ -1,0 +1,1 @@
+digest generate - | ./send.sh
