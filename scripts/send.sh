@@ -2,9 +2,9 @@
 
 mutt \
   -e "set content_type=text/html"\
-  -e "set from = \"buckley.w.david@gmail.com\""\
+  -e "set from = \"$1\""\
   -e "set realname = \"David Buckley\""\
-  -e "set imap_user = \"buckley.w.david@gmail.com\""\
+  -e "set imap_user = \"$1\""\
   -e "set imap_pass = \"${APP_PASSWORD}\""\
   -e "set folder = \"imaps://imap.gmail.com:993\""\
   -e "set spoolfile = \"+INBOX\""\
